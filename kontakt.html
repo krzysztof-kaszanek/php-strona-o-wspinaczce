@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="pl-PL">
+  <head> 
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <title>Wspinaczka</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html">Strona główna</a>
+      <a href="teren.html">Teren wspinaczkowy</a>
+      <a href="skale.html">Skale trudności</a>
+      <a href="kontakt.html">Formularz kontaktowy</a>
+      <a href="rodzaje.html">Profil</a>
+      <a id="nick"><button id="loginButton">Logowanie</button></span>                                                      
+    </nav>
+
+    <div class="content">
+      <form autocomplete="on">
+        <label>
+          Imię:
+          <input type="text" name="fname" style="margin: 5px 0px 10px 55px" autofocus>    
+        </label>
+        <br>
+        <label>
+          Nazwisko:
+          <input type="text" name="lname" style="margin: 5px 0px 10px 20px" required/>    
+        </label>
+        <br>
+        <label>
+          Data urodzenia:
+        </label>
+        <br>
+        <label>
+          Dzień:
+          <input type="number" name="bday" style="margin: 5px 0px 10px 46px">
+        </label>
+        <br>
+        <label>
+          Miesiąc:
+          <input list= "months" name="bmonth" style="margin: 5px 0px 10px 33px">
+          <datalist id = "months">
+          <option value = "styczeń">
+          <option value = "luty">
+          <option value = "marzec">
+          <option value = "kwiecień">
+          <option value = "maj">
+          <option value = "czerwiec">
+          <option value = "lipiec">
+          <option value = "sierpień">
+          <option value = "wrzesień">
+          <option value = "październik">
+          <option value = "listopad">
+          <option value = "grudzień">
+          </datalist>
+          Wybierz z listy
+        </label>
+        <br>
+        <label>
+          Rok:
+          <input type="number" name="byear" style="margin: 5px 0px 10px 57px">    
+        </label>
+        <br>
+        <label>
+          Email:
+          <input type="email" name="email" style="margin: 5px 0px 10px 46px" required/>
+          osoba@domena.com    
+        </label>
+        <br>
+        <label>
+          Telefon:
+          <input type="tel" name="phonenumber" style="margin: 5px 0px 10px 35px"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"/>
+          123-456-789
+        </label>
+        <br>
+        Rodzaj wspinaczki:<br>        
+        <label><input type="radio" name="rodzaj">Bouldering</label><br>
+        <label><input type="radio" name="rodzaj">Panel</label><br>
+        <label><input type="radio" name="rodzaj">Skalna</label><br>
+        Poziom zaawansowania:
+        <select>
+          <optgroup label="Początkujący">
+            <option>3</option>
+            <option>4</option>
+            <option>5a</option>
+          </optgroup>
+          <optgroup label="Średniozaawansowany">
+            <option>5b</option>
+            <option>5c</option>
+            <option>6a</option>
+            <option>6b</option>
+          </optgroup>
+          <optgroup label="Zaawansowany">
+            <option>6c</option>
+            <option>7a</option>
+            <option>7b</option>
+            <option>7c</option>
+          </optgroup>
+        </select>
+        <br>
+        <label style="padding-bottom:20px">
+          Wiadomość:
+          <textarea maxlength="200" rows="5" cols="50" style="margin: 5px 0px 0px 20px"></textarea>  
+        </label>
+        <br>
+        <label>
+          <input type="checkbox" style="margin: 15px 0px 10px 0px">                        
+          Potwierdzam przeczytanie regulaminu
+        </label> 
+        <br>
+        <input type="submit">
+      </form>
+    </div>
+
+    <script src="js/main.js"></script>
+    
+  </body>
+</html>

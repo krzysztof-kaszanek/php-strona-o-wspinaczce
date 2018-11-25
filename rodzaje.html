@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="pl-PL">        
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <title>Wspinaczka</title>
+  </head>
+  <body class="background-img">
+    <nav class="navbar">
+      <a href="index.html">Strona główna</a>
+      <a href="teren.html">Teren wspinaczkowy</a>
+      <a href="skale.html">Skale trudności</a>
+      <a href="kontakt.html">Formularz kontaktowy</a>
+      <a href="rodzaje.html">Profil</a>
+      <a id="nick"><button id="loginButton">Logowanie</button></span>                                                      
+    </nav>
+
+    <div class="content">
+      <form id="user-info">
+        <label>
+          Ulubiony kolor liny:
+          <input type="color">
+        </label>
+        <br>
+        <label>
+          Jak bardzo lubisz sie wspinac:
+          <input type="range" style="margin-bottom:0"/>    
+        </label>
+        <br>
+        <label>
+          Jak dowiedziałeś się o tej stronie:
+          <input type="text" placeholder="np. ulotka"> 
+        </label>
+        <br>
+        <label>
+          Miesiąc w którym zacząłeś się wspinać:
+          <input type="month"/>
+        </label>
+        <br>
+        <label>
+          Ulubiona strona:
+          <input type="url"
+          placeholder="www.wspinaczka.com"/>
+        </label>
+        <br>
+        <input type="submit">
+      </form>
+    </div> 
+    
+    <script src="js/main.js"></script>    
+    
+  </body>
+</html>
