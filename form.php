@@ -78,10 +78,13 @@
     $errors[] = PHONE_ERROR;
   }
 
+
   if ($errors){
+    echo "<div class='error'>";
     echo "Wystąpiły ".count($errors)." błędy: <br/>";
     foreach ($errors as $error)
       echo(" - ".$error."<br/>");
+    echo "</div>";
   } else {
     echo "<h2 class='success'>".SUCCESS_MESSAGE."</h2>";
   }
