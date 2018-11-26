@@ -219,6 +219,15 @@ td, th {
   position: fixed;
 }
 
+.error {
+  font-size: 20px;
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
 @media only screen and (max-width: 600px) {
   .navbar {
     overflow: hidden;
