@@ -23,7 +23,9 @@
   define("SUCCESS_MESSAGE", "Udało się poprawnie wysłać formularz!");
   define("NAME_ERROR", "W imieniu i nazwisku mogą wystepować jedynie litery!");
   define("PHONE_ERROR", "Nieprawidłowy format numeru telefonu!");
-
+  define("FNAME_REQUIRED", "Imię jest wymagane!");
+  define("LNAME_REQUIRED", "Nazwisko jest wymagane!");
+  define("EMAIL_REQUIRED", "Adres email jest wymagany!");
 
   $months = [
     "styczeń" => 1,
@@ -42,7 +44,7 @@
 
   $bdate = "";
   $age = "";
-
+  $errors = [];
 
   function checkIfString($name) {
     return preg_match('/^([a-z])+$/i', $name);
@@ -52,16 +54,32 @@
     return preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/', $phone); # ^ początek, $ koniec stringa
   };
 
-//  echo "<h2>".SUCCESS_MESSAGE."</h2>";
+  $specialchars = 'Is your name O\'Reilly?';
 
-  $fname = $_POST["fname"];
-  $lname = $_POST["lname"];
+  if (empty($_POST["fname"])) {
+    $errors[] = FNAME_REQUIRED;
+  } else {
+    $fname = $_POST["fname"];
+  }
+
+  if (empty($_POST["lname"])) {
+    $errors[] = LNAME_REQUIRED;
+  } else {
+    $lname = $_POST["lname"];
+  }
+
+  if (empty($_POST["email"])) {
+    $errors[] = EMAIL_REQUIRED;
+  } else {
+    $email = $_POST["email"];
+  }
+
   $phone = $_POST["phonenumber"];
-  $day = $_POST["bday"];
-  $year = $_POST["byear"];
 
-  if ($_POST["bmonth"]) {
+  if (!empty($_POST["bday"]) && !empty($_POST["bmonth"]) && !empty($_POST["byear"])) {
+    $day = $_POST["bday"];
     $month = $months[$_POST["bmonth"]];
+    $year = $_POST["byear"];
     $bdate = $day . "-" . $month . "-" . $year;
     $age = round((time() - strtotime($bdate)) / (3600 * 24 * 365.25));
   }
@@ -69,15 +87,13 @@
   $ip = $_SERVER['REMOTE_ADDR'];
   $user_info = $_SERVER['HTTP_USER_AGENT'];
 
-  $errors = [];
 
   if (!(checkIfString($fname) && checkIfString($lname))) {
     $errors[] = NAME_ERROR;
   }
-  if (!checkPhoneNumberCorrect($phone)) {
+  if (!empty($phone) && !checkPhoneNumberCorrect($phone)) {
     $errors[] = PHONE_ERROR;
   }
-
 
   if ($errors){
     echo "<div class='error'>";
@@ -86,7 +102,22 @@
       echo(" - ".$error."<br/>");
     echo "</div>";
   } else {
-    echo "<h2 class='success'>".SUCCESS_MESSAGE."</h2>";
+    echo SUCCESS_MESSAGE."</br>";
+    echo "  ";
+    echo "Twoje dane: <br/>";
+    echo "Imię: ".$fname."<br/>";
+    echo "Nazwisko: ".$lname."<br/>";
+    echo "Email: ".$email."<br/>";
+
+    if (empty($phone)) {
+      echo "Telefon: Nie podano"."<br/>";
+    } else {
+      echo "Telefon: ".$phone."<br/>";
+    }
+
+    if (!empty($age)) {
+      echo "Twój wiek: ".$age."<br/>";
+    }
   }
 
   ?>
